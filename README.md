@@ -6,7 +6,7 @@ A common core for parsing the different files used over at [the Fibula MMO proje
 
 ## Implementations of this library include:
 
-- The Tibia 7.7 [CipSoft Files Parser](TO-BE-LINKED)
+- The Tibia 7.7 [CipSoft Files Parser](https://github.com/Fibula-MMO/fibula-parsing-cip)
 
 ---
 
