@@ -29,5 +29,5 @@ jobs:
       run: dotnet test src --no-build --verbosity normal
 
     - name: Publish Fibula.Parsing.Contracts Package
-      run: dotnet nuget push "src/Fibula.Parsing.Contracts/bin/Release/*.nupkg" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "src/Fibula.Parsing.Contracts/bin/Release/*.nupkg" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }} --source "fibula-mmo"
       
