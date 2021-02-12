@@ -35,7 +35,7 @@ jobs:
 
     - name: Publish to GitHub
       # The github token is automatically being pulled from the workflow
-      run: dotnet nuget push *.nupkg --no-symbols --skip-duplicate
+      run: dotnet nuget push "bin/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --no-symbols --skip-duplicate
       env:
         NUGET_AUTH_TOKEN: ${{ github.token }}
       
