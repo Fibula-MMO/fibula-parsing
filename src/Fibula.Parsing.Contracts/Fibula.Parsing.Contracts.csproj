@@ -6,13 +6,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>full</DebugType>
     <OutputPath>..\..\bin</OutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Fibula.Parsing.Contracts</PackageId>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>2020</Copyright>
     <Authors>Jose L. Nunez de Caceres et al.</Authors>
-    <Company>2 Dudes</Company>
+    <Company>The Fibula Project</Company>
     <Product>Fibula MMO</Product>
-    <PackageProjectUrl>https://jlnunez89.github.io/fibula-mmo</PackageProjectUrl>
+    <PackageProjectUrl>https://fibula-mmo.github.io/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Fibula-MMO/fibula-parsing-contracts</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Version>1.0.1</Version>
