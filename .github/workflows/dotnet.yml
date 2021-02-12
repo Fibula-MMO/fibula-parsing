@@ -17,7 +17,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        # SDK Version to use; x will use the latest version of the 3.1 channel
+        dotnet-version: '3.1.x'
+        # Authenticates packages to push to GPR
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Restore dependencies
       run: dotnet restore src
@@ -28,6 +33,9 @@ jobs:
     - name: Test
       run: dotnet test src --no-build --verbosity normal
 
-    - name: Publish Fibula.Parsing.Contracts Package
-      run: dotnet nuget push "bin/Release/*.nupkg" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }} --source "fibula-mmo"
+    - name: Publish to GitHub
+      # The github token is automatically being pulled from the workflow
+      run: dotnet nuget push *.nupkg --no-symbols --skip-duplicate
+      env:
+        NUGET_AUTH_TOKEN: ${{ github.token }}
       
