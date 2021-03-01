@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------
-// <copyright file="IParsedAttribute.cs" company="2Dudes">
+// <copyright file="IParsedFlag.cs" company="2Dudes">
 // Copyright (c) | Jose L. Nunez de Caceres et al.
 // https://linkedin.com/in/nunezdecaceres
 //
@@ -12,13 +12,13 @@
 namespace Fibula.Parsing.Contracts.Abstractions
 {
     /// <summary>
-    /// Interface for a parsed attribute.
+    /// Interface for a parsed flag.
     /// </summary>
-    public interface IParsedAttribute : IParsedFlag
+    public interface IParsedFlag
     {
         /// <summary>
-        /// Gets or sets the attribute's value.
+        /// Gets or sets the flag's name.
         /// </summary>
-        object Value { get; set; }
+        string Name { get; set; }
     }
 }

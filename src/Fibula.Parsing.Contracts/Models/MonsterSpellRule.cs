@@ -17,8 +17,13 @@ namespace Fibula.Parsing.Contracts.Models
     /// <summary>
     /// Class that represents a monster spell rule.
     /// </summary>
-    public class MonsterSpellRule
+    public class MonsterSpellRule : ActionRule
     {
+        /// <summary>
+        /// A type for this rule.
+        /// </summary>
+        public const string RuleType = nameof(MonsterSpellRule);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MonsterSpellRule"/> class.
         /// </summary>
@@ -26,30 +31,18 @@ namespace Fibula.Parsing.Contracts.Models
         /// <param name="effects">The effects of the spell.</param>
         /// <param name="chance">The chance of the spell.</param>
         public MonsterSpellRule(IEnumerable<string> conditions, IEnumerable<string> effects, string chance)
+            : base(conditions, effects, MonsterSpellRule.RuleType)
         {
-            this.Conditions = conditions ?? throw new ArgumentNullException(nameof(conditions));
-            this.Effects = effects ?? throw new ArgumentNullException(nameof(effects));
-
             if (!byte.TryParse(chance, out byte parsedChance))
             {
-                throw new ArgumentException(nameof(chance));
+                throw new ArgumentException("The chance for the spell is invalid.", nameof(chance));
             }
 
             this.Chance = parsedChance;
         }
 
         /// <summary>
-        /// Gets the set of conditions for this rule.
-        /// </summary>
-        public IEnumerable<string> Conditions { get; }
-
-        /// <summary>
-        /// Gets the set of actions for this rule.
-        /// </summary>
-        public IEnumerable<string> Effects { get; }
-
-        /// <summary>
-        /// Gets the chance of this spell being picked.
+        /// Gets the chance of this spell being picked in a round.
         /// </summary>
         public byte Chance { get; }
     }

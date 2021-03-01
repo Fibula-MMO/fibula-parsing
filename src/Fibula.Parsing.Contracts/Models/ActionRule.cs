@@ -46,7 +46,7 @@ namespace Fibula.Parsing.Contracts.Models
         }
 
         /// <summary>
-        /// Gets the type of event.
+        /// Gets the type of rule.
         /// </summary>
         public string Type { get; }
 

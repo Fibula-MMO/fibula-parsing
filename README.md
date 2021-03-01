@@ -1,6 +1,6 @@
 # Fibula MMO - Parsing Library
 
-![.NET](https://github.com/fibula-mmo/fibula-parsing-contracts/workflows/.NET/badge.svg)
+![.NET](https://github.com/fibula-mmo/fibula-parsing/workflows/.NET/badge.svg)
 
 A common core for parsing the different files used over at [the Fibula MMO project](https://github.com/jlnunez89/fibula-mmo).
 

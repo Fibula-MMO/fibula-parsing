@@ -23,24 +23,24 @@ namespace Fibula.Parsing.Contracts
         /// Initializes a new instance of the <see cref="ComparisonFunction"/> class.
         /// </summary>
         /// <param name="name">The name of the function.</param>
-        /// <param name="comparisonType">The comparison type.</param>
+        /// <param name="operator">The comparison operator.</param>
         /// <param name="constantOrValue">The constant or value being compared against.</param>
         /// <param name="parameters">The parameters of the function.</param>
-        public ComparisonFunction(string name, string comparisonType, string constantOrValue, params string[] parameters)
+        public ComparisonFunction(string name, string @operator, string constantOrValue, params string[] parameters)
         {
             this.Name = name ?? throw new ArgumentNullException(nameof(name));
             this.Parameters = parameters ?? throw new ArgumentNullException(nameof(parameters));
             this.ConstantOrValue = constantOrValue ?? throw new ArgumentNullException(nameof(constantOrValue));
             this.Parameters = parameters;
 
-            this.Type = comparisonType switch
+            this.Operator = @operator switch
             {
-                ">=" => FunctionComparisonType.GreaterThanOrEqual,
-                "<=" => FunctionComparisonType.LessThanOrEqual,
-                ">" => FunctionComparisonType.GreaterThan,
-                "<" => FunctionComparisonType.LessThan,
-                "==" => FunctionComparisonType.Equal,
-                _ => throw new NotSupportedException($"Unsupported value for {nameof(comparisonType)}: '{comparisonType}'.")
+                ">=" => ComparisonOperator.GreaterThanOrEqual,
+                "<=" => ComparisonOperator.LessThanOrEqual,
+                ">" => ComparisonOperator.GreaterThan,
+                "<" => ComparisonOperator.LessThan,
+                "==" => ComparisonOperator.Equal,
+                _ => throw new NotSupportedException($"Unsupported value for {nameof(@operator)}: '{@operator}'.")
             };
         }
 
@@ -57,7 +57,7 @@ namespace Fibula.Parsing.Contracts
         /// <summary>
         /// Gets the type of comparison to the <see cref="ConstantOrValue"/>.
         /// </summary>
-        public FunctionComparisonType Type { get; }
+        public ComparisonOperator Operator { get; }
 
         /// <summary>
         /// Gets the constant or value to compare against.

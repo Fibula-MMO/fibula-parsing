@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------
-// <copyright file="FunctionComparisonType.cs" company="2Dudes">
+// <copyright file="ComparisonOperator.cs" company="2Dudes">
 // Copyright (c) | Jose L. Nunez de Caceres et al.
 // https://linkedin.com/in/nunezdecaceres
 //
@@ -12,14 +12,14 @@
 namespace Fibula.Parsing.Contracts.Enumerations
 {
     /// <summary>
-    /// Enumerates the types of function comparison.
+    /// Enumerates all the possible comparison operators.
     /// </summary>
-    public enum FunctionComparisonType : byte
+    public enum ComparisonOperator : byte
     {
         /// <summary>
-        /// Undefined.
+        /// Equal.
         /// </summary>
-        Undefined,
+        Equal,
 
         /// <summary>
         /// Greater than.
@@ -40,10 +40,5 @@ namespace Fibula.Parsing.Contracts.Enumerations
         /// Less than or equal.
         /// </summary>
         LessThanOrEqual,
-
-        /// <summary>
-        /// Equal.
-        /// </summary>
-        Equal,
     }
 }
